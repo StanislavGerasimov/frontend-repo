@@ -1,0 +1,17 @@
+<h2>Список передач</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Назва</th>
+      <th>Рейтинг</th>
+      <th>Вартість хвилини</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let show of shows">
+      <td>{{ show.name }}</td>
+      <td>{{ show.rating }}</td>
+      <td>{{ show.pricePerMinute | currency }}</td>
+    </tr>
+  </tbody>
+</table>
