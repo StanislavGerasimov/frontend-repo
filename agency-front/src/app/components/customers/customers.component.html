@@ -1,1 +1,45 @@
-<p>customers works!</p>
+<h2>Список клієнтів</h2>
+<div class="actions">
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-button"
+    (click)="openAddCustomerDialog()"
+  >
+    ➕ Додати клієнта
+  </button>
+</div>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Назва</th>
+      <th>Номер телефону</th>
+      <th>Платіжні дані</th>
+      <th>Ім'я контактної особи</th>
+      <th class="hidden-header"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let customer of customers; let i = index"
+      (mouseenter)="onRowHover(i)"
+      (mouseleave)="onRowHover(null)"
+    >
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.phone }}</td>
+      <td>{{ customer.bankDetails }}</td>
+      <td>{{ customer.contactPerson }}</td>
+      <td>
+        <button
+          *ngIf="hoveredIndex === i && customer._id"
+          mat-icon-button
+          color="warn"
+          (click)="deleteCustomer(customer._id, i)"
+        >
+          🗑️
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

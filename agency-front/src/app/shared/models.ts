@@ -16,7 +16,7 @@ export interface Customer {
 export interface Agent {
   _id?: string;
   name: string;
-  commissionPercentage: number;
+  commissionRate: number;
 }
 
 export interface Advertisement {

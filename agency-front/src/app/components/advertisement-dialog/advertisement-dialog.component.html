@@ -1,0 +1,64 @@
+<mat-dialog-content class="dialog-container">
+  <h2>Додати нову рекламу</h2>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    ✖
+  </button>
+
+  <form [formGroup]="advertisementForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Шоу</mat-label>
+      <mat-select formControlName="show">
+        <mat-option *ngFor="let show of shows" [value]="show._id">
+          {{ show.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Клієнт</mat-label>
+      <mat-select formControlName="customer">
+        <mat-option *ngFor="let customer of customers" [value]="customer._id">
+          {{ customer.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Агент</mat-label>
+      <mat-select formControlName="agent">
+        <mat-option *ngFor="let agent of agents" [value]="agent._id">
+          {{ agent.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Дата</mat-label>
+      <input matInput type="date" formControlName="date" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Тривалість (хв)</mat-label>
+      <input matInput type="number" formControlName="duration" required />
+    </mat-form-field>
+
+    <div class="buttons">
+      <button
+        mat-stroked-button
+        color="warn"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Скасувати
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        type="submit"
+        [disabled]="advertisementForm.invalid"
+      >
+        Додати
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

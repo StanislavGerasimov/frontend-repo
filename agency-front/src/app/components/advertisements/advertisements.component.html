@@ -1,1 +1,51 @@
-<p>advertisements works!</p>
+<h2>Список реклам</h2>
+<div class="actions">
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-button"
+    (click)="openAddAdvertisementDialog()"
+  >
+    ➕ Додати рекламу
+  </button>
+</div>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Назва</th>
+      <th>Клієнт</th>
+      <th>Агент</th>
+      <th>Дата</th>
+      <th>Тривалість</th>
+      <th>Ціна</th>
+      <th class="hidden-header"></th>
+      <!-- Прихований заголовок -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let advertisement of advertisements; let i = index"
+      (mouseenter)="onRowHover(i)"
+      (mouseleave)="onRowHover(null)"
+    >
+      <td>{{ getShowName(advertisement.show) }}</td>
+      <td>{{ getCustomerName(advertisement.customer) }}</td>
+      <td>{{ getAgentName(advertisement.agent) }}</td>
+
+      <td>{{ advertisement.date }}</td>
+      <td>{{ advertisement.duration }}</td>
+      <td>{{ advertisement.totalCost }}%</td>
+      <td>
+        <button
+          *ngIf="hoveredIndex === i && advertisement._id"
+          mat-icon-button
+          color="warn"
+          (click)="deleteAdvertisement(advertisement._id, i)"
+        >
+          🗑️
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

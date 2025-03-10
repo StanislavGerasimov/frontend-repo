@@ -1,1 +1,42 @@
-<p>agents works!</p>
+<h2>Список агентів</h2>
+<div class="actions">
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-button"
+    (click)="openAddShowDialog()"
+  >
+    ➕ Додати агента
+  </button>
+</div>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Ім'я</th>
+      <th>Коміссія</th>
+      <th class="hidden-header"></th>
+      <!-- Прихований заголовок -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let agent of agents; let i = index"
+      (mouseenter)="onRowHover(i)"
+      (mouseleave)="onRowHover(null)"
+    >
+      <td>{{ agent.name }}</td>
+      <td>{{ agent.commissionRate }}%</td>
+      <td>
+        <button
+          *ngIf="hoveredIndex === i && agent._id"
+          mat-icon-button
+          color="warn"
+          (click)="deleteAgent(agent._id, i)"
+        >
+          🗑️
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

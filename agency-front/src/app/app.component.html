@@ -1,10 +1,14 @@
-<nav>
-  <button routerLink="/shows" routerLinkActive="active">Передачі</button>
-  <button routerLink="/advertisements" routerLinkActive="active">
-    Реклама
-  </button>
-  <button routerLink="/customers" routerLinkActive="active">Замовники</button>
-  <button routerLink="/agents" routerLinkActive="active">Агенти</button>
-</nav>
+<mat-toolbar color="white" class="header">
+  <nav class="nav-links">
+    <a mat-button routerLink="/shows" routerLinkActive="active">Передачі</a>
+    <a mat-button routerLink="/advertisements" routerLinkActive="active"
+      >Реклама</a
+    >
+    <a mat-button routerLink="/customers" routerLinkActive="active"
+      >Замовники</a
+    >
+    <a mat-button routerLink="/agents" routerLinkActive="active">Агенти</a>
+  </nav>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

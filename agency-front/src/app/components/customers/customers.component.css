@@ -1,0 +1,97 @@
+/* Центруємо заголовок */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+/* Стилі для контейнера дій */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* Стиль кнопки "Додати шоу" */
+.add-button {
+  background-color: black !important; /* Яскраво-рожевий */
+  color: white !important;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.add-button:hover {
+  background-color: #333 !important; /* Темніший рожевий */
+  transform: scale(1.05);
+}
+
+/* Стилізація таблиці */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Стиль заголовків */
+.styled-table thead {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+/* Альтернативні кольори рядків */
+.styled-table tbody tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+/* Стиль при наведенні */
+.styled-table tbody tr:hover {
+  background-color: #ddd;
+  transition: 0.3s;
+}
+
+/* Для кнопки видалення, що з'являється при hover */
+.styled-table tbody tr {
+  position: relative;
+}
+
+/* Сховуємо кнопку видалення за замовчуванням */
+.styled-table tbody tr button {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+/* Показуємо кнопку при hover на рядку */
+.styled-table tbody tr:hover button {
+  display: inline-block;
+}
+
+/* Стилі для кнопки видалення */
+.styled-table tbody tr button:hover {
+  color: red;
+}
+
+/* Приховуємо заголовок "Дії" */
+.hidden-header {
+  opacity: 0; /* Робить текст невидимим, але зберігає простір */
+  width: auto; /* Дозволяє колонці адаптуватися */
+  min-width: 50px; /* Мінімальна ширина, щоб фон не обривався */
+}

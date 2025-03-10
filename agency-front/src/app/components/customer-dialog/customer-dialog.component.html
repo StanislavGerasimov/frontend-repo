@@ -1,0 +1,53 @@
+<mat-dialog-content class="dialog-container">
+  <h2>Додати нового клієнта</h2>
+  <button mat-icon-button class="close-button" (click)="closeDialog()">
+    ✖
+  </button>
+
+  <form [formGroup]="customerForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Назва</mat-label>
+      <input matInput formControlName="name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Номер телефону</mat-label>
+      <input matInput formControlName="phone" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Банк</mat-label>
+      <input matInput formControlName="bankName" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Номер рахунку</mat-label>
+      <input matInput formControlName="accountNumber" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ім'я контактної особи</mat-label>
+      <input matInput formControlName="contactPerson" required />
+    </mat-form-field>
+
+    <div class="buttons">
+      <button
+        mat-stroked-button
+        color="warn"
+        type="button"
+        (click)="closeDialog()"
+      >
+        Скасувати
+      </button>
+
+      <button
+        mat-stroke-button
+        color="primary"
+        type="submit"
+        [disabled]="customerForm.invalid"
+      >
+        Додати
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

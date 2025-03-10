@@ -1,17 +1,43 @@
 <h2>Список передач</h2>
-<table>
+<div class="actions">
+  <button
+    mat-raised-button
+    color="accent"
+    class="add-button"
+    (click)="openAddShowDialog()"
+  >
+    ➕ Додати шоу
+  </button>
+</div>
+
+<table class="styled-table">
   <thead>
     <tr>
       <th>Назва</th>
       <th>Рейтинг</th>
       <th>Вартість хвилини</th>
+      <th class="hidden-header"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let show of shows">
+    <tr
+      *ngFor="let show of shows; let i = index"
+      (mouseenter)="onRowHover(i)"
+      (mouseleave)="onRowHover(null)"
+    >
       <td>{{ show.name }}</td>
       <td>{{ show.rating }}</td>
       <td>{{ show.pricePerMinute | currency }}</td>
+      <td>
+        <button
+          *ngIf="hoveredIndex === i && show._id"
+          mat-icon-button
+          color="warn"
+          (click)="deleteShow(show._id, i)"
+        >
+          🗑️
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
